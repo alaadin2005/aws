@@ -90,8 +90,7 @@ systemctl enable tomcat
 
 cd /home
 mkdir vagrant
-git clone -b main https://github.com/alaadin2005/vprofile-project.git
-
+git clone -b main https://github.com/alaadin2005/aws.git
 cd vprofile-project
 sed -i 's|backend.server.url=.*|backend.server.url=http://db01.c1suaoqsgxev.eu-north-1.rds.amazonaws.com:3306|' src/main/resources/application.properties
 
