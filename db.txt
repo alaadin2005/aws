@@ -1,0 +1,12 @@
+MySQL -h db01.c1suaoqsgxev.eu-north-1.rds.amazonaws.com -u admin -padmin1234
+CREATE DATABASE accounts;
+GRANT ALL PRIVILEGES ON accounts.* TO 'admin'@'%' IDENTIFIED BY 'admin1234';
+FLUSH PRIVILEGES;
+exit
+
+# Download source code and initialize database
+echo "Cloning source code and initializing database..."
+git clone -b main https://github.com/hkhcoder/vprofile-project.git
+cd vprofile-project
+mysql -h db01.c1suaoqsgxev.eu-north-1.rds.amazonaws.com -u admin -padmin1234 accounts < src/main/resources/db_backup.sql
+
